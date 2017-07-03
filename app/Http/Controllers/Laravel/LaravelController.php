@@ -38,13 +38,7 @@ class LaravelController extends Controller
 
     public function chkEnv()
     {
-        $config = [
-            'conf.app'=>[config('app.name')],
-            'conf.database'=>[config('database.default')],
-            'conf.services'=>[config('services.mailgun.domain')],
-        ];
-
-        echo __DIR__;
+        echo phpinfo();
         return '取得当前应用的配置信息';
     }
 

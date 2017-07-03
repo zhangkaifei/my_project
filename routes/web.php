@@ -76,6 +76,9 @@ Route::Group(['prefix'=>'route','namespace'=>'Laravel\\Route'],function(){
 
     //向middleware中附加参数 , param为所要传递的参数，多个参数之间用 : 分隔
     //Route::get('midware',function(){})->middleware('checkUser:param')
+    //关于csrf protection 的使用
+
+    Route::get('csrf' , 'CsrfController@index');
 
 });
 /**
