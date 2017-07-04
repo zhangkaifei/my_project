@@ -80,6 +80,10 @@ Route::Group(['prefix'=>'route','namespace'=>'Laravel\\Route'],function(){
 
     Route::get('csrf' , 'CsrfController@index');
 
+    //淘宝api调用测试
+    Route::get('goods/show','RouteController@getProducts');
+    Route::get('goods/detail','RouteController@getProDetail');
+
 });
 /**
  * laravel5.4 最新路由定义方式
