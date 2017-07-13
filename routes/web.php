@@ -15,6 +15,10 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+Route::domain('{account}.app.com')->group(function () {
+    Route::get('user/{id}','UserController@getUser')->name('find_user');
+});
+
 /**
  * use crontab execute php script
  */
@@ -50,6 +54,15 @@ Route::Group(['prefix'=>'debug'] , function(){
 Route::Group(['namespace'=>'Laravel','prefix'=>'laravel'],function(){
     Route::get('/blog','LaravelController@index');
     Route::get('/chkEnv' , 'LaravelController@chkEnv');
+    //laravel中cookie的使用
+    Route::get('cookie/set','LaravelController@addCookieForNext')->name('laravel_set_cookie');
+    Route::get('cookie/get','LaravelController@getCookieFromFront')->name('laravel_get_cookie');
+    Route::get('cookie/old','LaravelController@getAssignCookie')->name('laravel_old_cookie');
+    //session跨域共享测试
+    Route::get('session/test','LaravelController@testSession')->name('laravel_session_test');
+    Route::get('session/get/{sessid}','LaravelController@getSessionInfo')->name('laravel_session_get');
+
+
 });
 
 /**
@@ -84,6 +97,11 @@ Route::Group(['prefix'=>'route','namespace'=>'Laravel\\Route'],function(){
     Route::get('goods/show','RouteController@getProducts');
     Route::get('goods/detail','RouteController@getProDetail');
 
+    //对方法中可变参数的使用与测试
+    Route::get('testParam','RouteController@testParam');
+
+
+
 });
 /**
  * laravel5.4 最新路由定义方式
@@ -101,4 +119,13 @@ Route::prefix('home')->group(function(){
 //子域名路由
 Route::domain('{subdomain}.example.com')->group(function(){
     //Route::get('user/{id}', function ($subdomain, $id) {});
+});
+
+/**
+ * Laravel request 与 response 的使用
+ *
+ */
+Route::Group(['prefix'=>'io','namespace'=>'io'],function(){
+    Route::get('request/{sort?}/{price?}','IoController@request');
+    Route::get('response','IoController@response');
 });

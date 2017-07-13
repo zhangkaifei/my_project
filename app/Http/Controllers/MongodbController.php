@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Http\Model\Mongodb;
+use App\Http\Model\Users;
 
 class MongodbController extends Controller
 {
@@ -60,4 +61,5 @@ class MongodbController extends Controller
         $mongo_id = $doc->insertGetId($ins_data);
         return $mongo_id ? '插入用户信息成功，用户id:'.$mongo_id : '添加用户信息失败';
     }
+
 }

@@ -134,4 +134,22 @@ class RouteController extends Controller
 
         return ;
     }
+
+    protected function myFunc($params)
+    {
+        $ret = '';
+        foreach(func_get_args() as $k=>$v)
+        {
+            $ret .= '参数'.($k+1).'-->'.$v.'  ';
+        }
+        return $ret;
+    }
+
+    public function testParam()
+    {
+        $array = ['name','age','country','sex'];
+        echo $this->myFunc(...$array);
+        return '<hr>如何使用可变参数';
+    }
+
 }

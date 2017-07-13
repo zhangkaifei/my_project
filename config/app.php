@@ -181,6 +181,9 @@ return [
          */
         Jenssegers\Mongodb\MongodbServiceProvider::class,
 
+        //第三方社交登陆
+        \SocialiteProviders\Manager\ServiceProvider::class,
+
     ],
 
     /*
@@ -231,6 +234,8 @@ return [
         'View' => Illuminate\Support\Facades\View::class,
         //mongodb 's alias
         'Mongo' => Jenssegers\Mongodb\MongodbServiceProvider::class,
+        //添加使用第三方社交平台登陆的门面方法
+        'Socialite' => Laravel\Socialite\Facades\Socialite::class,
     ],
 
 ];

@@ -5,7 +5,6 @@ namespace App\Providers;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Foundation\Support\Providers\RouteServiceProvider as ServiceProvider;
 use App\Http\Model\Users;
-
 class RouteServiceProvider extends ServiceProvider
 {
     /**
@@ -24,7 +23,6 @@ class RouteServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        //
         //设置全局路由匹配规则
         //匹配中文字符正规表达式规则“[\x{4e00}-\x{9fa5}]”
         Route::patterns(['id'=>'[\w]+','category'=>'[a-z]+','address'=>'[\x{4e00}-\x{9fa5}]+']);

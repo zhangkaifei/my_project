@@ -9,8 +9,10 @@
         "guzzlehttp/guzzle": "^6.3",
         "jenssegers/mongodb": "^3.2",
         "laravel/framework": "5.4.*",
+        "laravel/socialite": "^3.0",
         "laravel/tinker": "~1.0",
         "predis/predis": "^1.1",
+        "socialiteproviders/weixin": "^4.0",
         "swiftmailer/swiftmailer": "~5.4"
     },
     "require-dev": {
